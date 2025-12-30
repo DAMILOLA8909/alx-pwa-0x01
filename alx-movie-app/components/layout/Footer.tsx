@@ -1,35 +1,41 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter, faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-gray-900 text-white py-8">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <h2 className="text-xl font-bold mb-2">ALX Movie App</h2>
-            <p className="text-gray-400">Discover your next favorite movie</p>
-          </div>
-          <div className="flex space-x-4">
-            <a 
-              href="https://github.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <FontAwesomeIcon icon={faGithub} className="text-2xl" />
-            </a>
-          </div>
-        </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; {currentYear} ALX Movie App. All movie data is provided by TMDB.</p>
-          <p className="mt-1">This project is for educational purposes.</p>
+    <footer className="bg-[#171D22] text-white py-10 px-6 md:px-10 lg:px-20">
+      <div className="flex flex-col md:flex-row justify-between items-center w-full">
+        {/* Footer Logo */}
+        <h2 className="text-xl md:text-4xl font-semibold mb-4 md:mb-0">
+          Cine<span className="text-[#E2D609]">Seek</span>
+        </h2>
+
+        <nav className="flex-1 flex justify-center space-x-6 mb-4 md:mb-0">
+          <Link href="/" className="hover:text-[#E2D609] text-lg transition-colors duration-300">Home</Link>
+          <Link href="/movies" className="hover:text-[#E2D609] text-lg transition-colors duration-300">Movies</Link>
+          <Link href="/contact" className="hover:text-[#E2D609] text-lg transition-colors duration-300">Contact</Link>
+          <Link href="/privacy" className="hover:text-[#E2D609] text-lg transition-colors duration-300">Privacy Policy</Link>
+        </nav>
+
+        <div className="flex space-x-4">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#E2D609]">
+            <FontAwesomeIcon icon={faTwitter} size="lg" />
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#E2D609]">
+            <FontAwesomeIcon icon={faFacebook} size="lg" />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#E2D609]">
+            <FontAwesomeIcon icon={faInstagram} size="lg" />
+          </a>
         </div>
       </div>
+
+      <div className="mt-8 text-center text-sm text-gray-400">
+        <p>&copy; 2024 CineSeek. All rights reserved.</p>
+      </div>
     </footer>
+
   );
 };
 
