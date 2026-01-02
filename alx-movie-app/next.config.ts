@@ -1,18 +1,22 @@
+import type { NextConfig } from "next";
 import withPWAInit from "@ducanh2912/next-pwa";
 
-/** @type {import('next').NextConfig} */
-
 const withPWA = withPWAInit({
-  dest: 'public'
-})
+  dest: 'public',
+});
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['m.media-amazon.com', 'image.tmdb.org', 'www.themoviedb.org'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'm.media-amazon.com',
+      },
+    ],
   },
+  // Add turbopack config here (in Next.js config, not PWA config)
+  turbopack: {},
 };
 
-export default withPWA({
-  ...nextConfig
-})
+export default withPWA(nextConfig);
